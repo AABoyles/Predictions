@@ -6,6 +6,8 @@ output:
     code_folding: hide
 ---
 
+[Good Judgement Open](https://www.gjopen.com/memberships/4645/scores) / [Metaculus](https://www.metaculus.com/accounts/profile/106142/) / [PredictIt](https://www.predictit.org/dashboard/) / [Prediction Book](https://predictionbook.com/users/AABoyles)
+
 ```{r, message=FALSE}
 library("plyr")
 library("dplyr")
@@ -31,3 +33,4 @@ cbind(
   datatable(escape = FALSE)
 ```
 
+[LessWrong](https://www.lesswrong.com/users/aaboyles) / [Facebook](https://facebook.com/aaboyles) / [Twitter](https://twitter.com/aaboyles) / [LinkedIn](https://linkedin.com/in/aaboyles)
