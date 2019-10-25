@@ -2805,6 +2805,93 @@ summary {
 </style>
 
 
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: px;
+  margin-top: -px;
+}
+.section h2 {
+  padding-top: px;
+  margin-top: -px;
+}
+.section h3 {
+  padding-top: px;
+  margin-top: -px;
+}
+.section h4 {
+  padding-top: px;
+  margin-top: -px;
+}
+.section h5 {
+  padding-top: px;
+  margin-top: -px;
+}
+.section h6 {
+  padding-top: px;
+  margin-top: -px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
 
 <!-- tabsets -->
 
@@ -2897,7 +2984,7 @@ summary {
 </div>
 
 
-<p><a href="https://www.gjopen.com/memberships/4645/scores">Good Judgement Open</a> / <a href="https://www.metaculus.com/accounts/profile/106142/">Metaculus</a> / <a href="https://www.predictit.org/dashboard/">PredictIt</a> / <a href="https://predictionbook.com/users/AABoyles">Prediction Book</a></p>
+<p><a href="https://www.gjopen.com/memberships/4645/scores">Good Judgement Open</a> / <a href="https://www.metaculus.com/accounts/profile/106142/">Metaculus</a> / <a href="https://predictionbook.com/users/AABoyles">Prediction Book</a> / <a href="https://www.getguesstimate.com/users/60">Guesstimate</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">library</span>(<span class="st">&quot;plyr&quot;</span>)</a>
 <a class="sourceLine" id="cb1-2" title="2"><span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)</a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(<span class="st">&quot;magrittr&quot;</span>)</a>
@@ -2920,8 +3007,8 @@ summary {
 <a class="sourceLine" id="cb1-20" title="20">    ) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb1-21" title="21"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(Name, <span class="st">`</span><span class="dt">Length (Bytes)</span><span class="st">`</span>, <span class="st">`</span><span class="dt">Last Modified</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb1-22" title="22"><span class="st">  </span><span class="kw">datatable</span>(<span class="dt">escape =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<div id="htmlwidget-9abeb9afc0b8555444f8" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9abeb9afc0b8555444f8">{"x":{"filter":"none","data":[["1","2"],["<a href='TrackingTrumpsFirst100DaysApprovalRating.html'>Tracking Trumps First 100 Days Approval Rating<\/a>","<a href='MickMulvaneysLongevityAsTrumpsChiefOfStaff.html'>Mick Mulvaneys Longevity As Trumps Chief Of Staff<\/a>"],[20502,2441],["<a href='http://github.com/aaboyles/Predictions/commits/gh-pages/TrackingTrumpsFirst100DaysApprovalRating.Rmd'>2019-10-24<\/a>","<a href='http://github.com/aaboyles/Predictions/commits/gh-pages/MickMulvaneysLongevityAsTrumpsChiefOfStaff.Rmd'>2019-10-24<\/a>"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Length (Bytes)<\/th>\n      <th>Last Modified<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7b0003be9aff96132a7f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7b0003be9aff96132a7f">{"x":{"filter":"none","data":[["1","2"],["<a href='MickMulvaneysLongevityAsTrumpsChiefOfStaff.html'>Mick Mulvaneys Longevity As Trumps Chief Of Staff<\/a>","<a href='TrackingTrumpsFirst100DaysApprovalRating.html'>Tracking Trumps First 100 Days Approval Rating<\/a>"],[3454,20502],["<a href='http://github.com/aaboyles/Predictions/commits/gh-pages/MickMulvaneysLongevityAsTrumpsChiefOfStaff.Rmd'>2019-10-25<\/a>","<a href='http://github.com/aaboyles/Predictions/commits/gh-pages/TrackingTrumpsFirst100DaysApprovalRating.Rmd'>2019-10-24<\/a>"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>Length (Bytes)<\/th>\n      <th>Last Modified<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p><a href="https://www.lesswrong.com/users/aaboyles">LessWrong</a> / <a href="https://facebook.com/aaboyles">Facebook</a> / <a href="https://twitter.com/aaboyles">Twitter</a> / <a href="https://linkedin.com/in/aaboyles">LinkedIn</a></p>
 
 

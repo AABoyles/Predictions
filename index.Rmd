@@ -6,7 +6,7 @@ output:
     code_folding: hide
 ---
 
-[Good Judgement Open](https://www.gjopen.com/memberships/4645/scores) / [Metaculus](https://www.metaculus.com/accounts/profile/106142/) / [PredictIt](https://www.predictit.org/dashboard/) / [Prediction Book](https://predictionbook.com/users/AABoyles)
+[Good Judgement Open](https://www.gjopen.com/memberships/4645/scores) / [Metaculus](https://www.metaculus.com/accounts/profile/106142/) / [Prediction Book](https://predictionbook.com/users/AABoyles) / [Guesstimate](https://www.getguesstimate.com/users/60)
 
 ```{r, message=FALSE}
 library("plyr")
