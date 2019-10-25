@@ -27,6 +27,14 @@ CoS %>%
   datatable()
 ```
 
+## Munging
+
+There are two cases in which the office was vacant: once briefly under Richard Nixon, and for the first 2.5 years of the Carter Administration. It seems like those periods are fundamentally different phenomena than having a Chief of Staff, so we'll just drop them.
+
+```{r}
+filtered <- CoS %>% filter(Name != "(Vacant)")
+```
+
 ## Survival
 
 To compute how long a Chief of Staff's tenure will be, let's fit a survival curve!
@@ -34,8 +42,13 @@ To compute how long a Chief of Staff's tenure will be, let's fit a survival curv
 ```{r survival}
 library(survival)
 library(survminer)
-curve <- survfit(Surv(CoS$TimeInOffice) ~ 1)
-plot(curve)
+curve <- survfit(Surv(TimeInOffice) ~ 1, data=CoS)
+curve
+```
+
+
+```{r}
+ggsurvplot(curve)
 ```
 
 Now, since Mulvaney started on 2019-01-02, he'll need to be in his position 364 days to resolve the question as "No".
@@ -47,11 +60,28 @@ window
 
 So, the model suggests that he'll have a 364-day survival probability of `r window$surv`, and thus we predict that he'll be gone with probability `r 1-window$surv`
 
+## ...Conditioned on his current longevity
+
+If we condition his survival on the amount of time he's already made it, our estimate should go up. After all, each additional day constitutes additional Bayesian evidence that he will continue to survive.
+
+```{r}
+#remotes::install_github("zabore/condsurv")
+library(condsurv)
+csp <- conditional_surv_est(
+  basekm = curve,
+  t1 = as.integer(difftime(Sys.time(), as.POSIXct('2019-01-02', tz="UTC"), units="days")),
+  t2 = 364
+)$cs_est
+csp
+```
+
+By this perspective, he's `r csp*100`% likely to last through the end of the year, or `r (1-csp)*100`% likely to leave.
+
 ## Inside View
 
-**(as of 2019-10-24)**
+**(as of `r Sys.Date()`)**
 
-...suggests we should be so confident about his longevity:
+...suggests we shouldn't be so confident about his longevity:
 
 * 2019-10-22 [Fox News says his job is in jeopardy](https://www.foxnews.com/media/mick-mulvaney-struggles-as-white-house-leaks-say-his-job-is-in-jeopardy)
 * 2019-10-23 [President Trump Denies Rumors about replacement plans](https://www.politico.com/news/2019/10/23/trump-replace-chief-of-staff-mulvaney-055585)
